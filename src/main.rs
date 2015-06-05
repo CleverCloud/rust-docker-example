@@ -6,7 +6,7 @@ use hyper::uri::RequestUri;
 use hyper::header::ContentType;
 use hyper::header;
 
-const HELLO_WORLD: &'static [u8; 14] = b"Hello, World!";
+const HELLO_WORLD: &'static [u8; 13] = b"Hello, World!";
 
 fn main() {
     println!("starting hyper...");
