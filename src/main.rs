@@ -15,7 +15,7 @@ fn main() {
     Server::http(|req: Request, mut res: Response| {
       println!("got request");
         match (req.method, req.uri) {
-            (hyper::Get, RequestUri::AbsolutePath(ref path)) if path == "/plaintext" => {
+            (hyper::Get, RequestUri::AbsolutePath(ref path)) if path == "/" => {
                 res.headers_mut().set(ContentType::plaintext());
                 res.headers_mut().set(header::Server("Hyper".to_owned()));
 
