@@ -20,5 +20,5 @@ ADD ./Cargo.toml /source/rust-hyper/Cargo.toml
 ADD ./src/main.rs /source/rust-hyper/src/main.rs
 WORKDIR /source/rust-hyper
 RUN LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib rustc -V
-RUN LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib cargo run
+CMD LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib cargo run
 
