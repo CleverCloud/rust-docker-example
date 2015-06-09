@@ -2,15 +2,11 @@
 FROM geal/archlinux-rust
 MAINTAINER Geoffroy Couprie, contact@geoffroycouprie.com
 
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
-RUN curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- --channel=nightly --disable-sudo -y
+ADD . /source
+WORKDIR /source
 
-RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-
-RUN mkdir -p /source/rust-hyper/src
-ADD ./Cargo.toml /source/rust-hyper/Cargo.toml
-ADD ./src/main.rs /source/rust-hyper/src/main.rs
-WORKDIR /source/rust-hyper
-RUN LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib rustc -V
-CMD LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib cargo run
-
+EXPOSE 8080
+RUN cargo build
+CMD cargo run
