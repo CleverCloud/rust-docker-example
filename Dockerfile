@@ -1,5 +1,4 @@
-FROM geal/archlinux-rust
-MAINTAINER Geoffroy Couprie, contact@geoffroycouprie.com
+FROM rust:latest
 
 ADD . /source
 WORKDIR /source
